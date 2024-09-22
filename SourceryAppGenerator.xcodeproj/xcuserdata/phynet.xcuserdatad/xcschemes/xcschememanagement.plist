@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SourceryAppGeneratorTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6FBFFE532C9C30C70037AE34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6FBFFE632C9C30C90037AE34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6FBFFE6D2C9C30C90037AE34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
