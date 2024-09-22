@@ -1,0 +1,11 @@
+configurations:
+  # SourceryAppGenerator
+  - sources:
+      - ../../SourceryAppGenerator/
+    templates:
+      - Templates
+    output:
+      "../SourceryAppGeneratorTests/Mocks/Generated"
+    args:
+      autoMockableTestableImports: []
+      autoMockableImports: [""]

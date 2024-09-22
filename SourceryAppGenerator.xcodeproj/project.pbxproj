@@ -14,6 +14,7 @@
 		6FBFFE692C9C30C90037AE34 /* SourceryAppGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFFE682C9C30C90037AE34 /* SourceryAppGeneratorTests.swift */; };
 		6FBFFE732C9C30C90037AE34 /* SourceryAppGeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFFE722C9C30C90037AE34 /* SourceryAppGeneratorUITests.swift */; };
 		6FBFFE752C9C30C90037AE34 /* SourceryAppGeneratorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFFE742C9C30C90037AE34 /* SourceryAppGeneratorUITestsLaunchTests.swift */; };
+		6FBFFE822C9C30D80037AE34 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFFE812C9C30D80037AE34 /* Template.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		6FBFFE6E2C9C30C90037AE34 /* SourceryAppGeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SourceryAppGeneratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBFFE722C9C30C90037AE34 /* SourceryAppGeneratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryAppGeneratorUITests.swift; sourceTree = "<group>"; };
 		6FBFFE742C9C30C90037AE34 /* SourceryAppGeneratorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryAppGeneratorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6FBFFE812C9C30D80037AE34 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				6FBFFE572C9C30C70037AE34 /* SourceryAppGeneratorApp.swift */,
 				6FBFFE592C9C30C70037AE34 /* ContentView.swift */,
+				6FBFFE812C9C30D80037AE34 /* Template.swift */,
 				6FBFFE5B2C9C30C80037AE34 /* Assets.xcassets */,
 				6FBFFE5D2C9C30C80037AE34 /* Preview Content */,
 			);
@@ -113,6 +116,7 @@
 		6FBFFE672C9C30C90037AE34 /* SourceryAppGeneratorTests */ = {
 			isa = PBXGroup;
 			children = (
+				6FBFFE832C9C5A3A0037AE34 /* Mocks */,
 				6FBFFE682C9C30C90037AE34 /* SourceryAppGeneratorTests.swift */,
 			);
 			path = SourceryAppGeneratorTests;
@@ -125,6 +129,21 @@
 				6FBFFE742C9C30C90037AE34 /* SourceryAppGeneratorUITestsLaunchTests.swift */,
 			);
 			path = SourceryAppGeneratorUITests;
+			sourceTree = "<group>";
+		};
+		6FBFFE832C9C5A3A0037AE34 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				6FBFFE842C9C5A460037AE34 /* Generated */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		6FBFFE842C9C5A460037AE34 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +170,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FBFFE7B2C9C30C90037AE34 /* Build configuration list for PBXNativeTarget "SourceryAppGeneratorTests" */;
 			buildPhases = (
+				6F9E08342C9DD9A1005738D5 /* ShellScript */,
 				6FBFFE602C9C30C90037AE34 /* Sources */,
 				6FBFFE612C9C30C90037AE34 /* Frameworks */,
 				6FBFFE622C9C30C90037AE34 /* Resources */,
@@ -252,11 +272,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F9E08342C9DD9A1005738D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/SourceryAppGeneratorTests/Mocks/Generated",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"----------------------->>>>>>>>>>>>> sofia\"\n\nsh \"${PROJECT_DIR}/Scripts/sourcery.sh\"\n\nPROJECT_DIR=\"${PROJECT_DIR}\"\nSOURCERY_OUTPUT_DIR=\"${PROJECT_DIR}/SourceryAppGeneratorTests/Mocks/Generated\"\n\nif [ $? -ne 0 ]; then\n    echo \"Error: Sourcery falló al generar los mocks\"\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6FBFFE502C9C30C70037AE34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FBFFE822C9C30D80037AE34 /* Template.swift in Sources */,
 				6FBFFE5A2C9C30C70037AE34 /* ContentView.swift in Sources */,
 				6FBFFE582C9C30C70037AE34 /* SourceryAppGeneratorApp.swift in Sources */,
 			);
@@ -332,7 +375,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -395,7 +438,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -424,6 +467,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SourceryAppGenerator/Preview Content\"";
 				DEVELOPMENT_TEAM = N7ZHU538G9;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -453,6 +497,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SourceryAppGenerator/Preview Content\"";
 				DEVELOPMENT_TEAM = N7ZHU538G9;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
